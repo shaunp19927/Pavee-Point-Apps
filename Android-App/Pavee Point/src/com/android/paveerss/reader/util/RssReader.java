@@ -19,11 +19,23 @@ public class RssReader {
 	public List<RssItem> getItems() throws Exception {
 		// SAX parse RSS data
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser saxParser = factory.newSAXParser();
 
-		RssParseHandler handler = new RssParseHandler();
+		final SAXParser saxParser = factory.newSAXParser();
+		final RssParseHandler handler = new RssParseHandler();
 		
-		saxParser.parse(rssUrl, handler);
+//		saxParser.parse(rssUrl, handler);
+		
+		// This needs to be in a separate thread as newer versions of android
+		// will simply throw an error if we try to do network tasks in the ui
+		// thread
+		Thread thread = new Thread(new Runnable(){
+		    @Override
+		    public void run() {
+		        try {saxParser.parse(rssUrl, handler);} catch (Exception e) {}
+		    }
+		});
+		thread.start();
+		thread.join();		
 
 		return handler.getItems();
 		

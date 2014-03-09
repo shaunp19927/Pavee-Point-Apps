@@ -1,33 +1,18 @@
 package com.android.paveerss.reader;
 
 
-import com.android.paveerss.reader.data.RssItem;
-import com.android.paveerss.reader.listeners.ListListener;
-import com.android.paveerss.reader.util.RssReader;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.Button;
 
-public class SocialActivity extends Activity {
-
+public class SocialActivity extends BaseActivity {
 	
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.social);
-		
 		
 		Button btnFace = (Button) findViewById(R.id.button1);
 		Button btnLike = (Button) findViewById(R.id.button2);
@@ -39,10 +24,18 @@ public class SocialActivity extends Activity {
  
             public void onClick(View arg0) {
                 //Starting a new Intent
-            	Intent facebookIntent = new Intent(Intent.ACTION_VIEW,
-    		            Uri.parse("https://www.facebook.com/paveepoint"));
+            	Intent facebookIntent;
+            	try {
+                    getApplicationContext().getPackageManager()
+                            .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+                    facebookIntent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("fb://profile/100003614494122")); //Trys to make intent with FB's URI
+                } catch (Exception e) {
+                    facebookIntent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.facebook.com/paveepoint")); //catches and opens a url to the desired page
+                }
+            	
             	startActivity(facebookIntent);
- 
             }
         });
         
@@ -70,6 +63,8 @@ public class SocialActivity extends Activity {
             }
         });
 	}
+	
+	
 	
 
 

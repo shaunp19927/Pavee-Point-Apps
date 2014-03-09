@@ -3,6 +3,8 @@ package com.android.paveerss.reader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class DonateActivity extends Activity {
+public class DonateActivity extends BaseActivity {
 
 	
 
@@ -21,10 +23,8 @@ public class DonateActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.donate);
 		
-		
 		Button btnPaypal = (Button) findViewById(R.id.button1);
-		
-		
+				
 		//Listening to button event
         btnPaypal.setOnClickListener(new View.OnClickListener() {
  

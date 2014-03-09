@@ -2,18 +2,17 @@ package com.android.paveerss.reader;
 
 
 
-import com.android.paveerss.reader.data.RssItem;
-import com.android.paveerss.reader.listeners.ListListener;
-import com.android.paveerss.reader.util.RssReader;
-
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class RssActivity extends Activity {
+import com.android.paveerss.reader.data.RssItem;
+import com.android.paveerss.reader.listeners.ListListener;
+import com.android.paveerss.reader.util.RssReader;
+
+public class RssActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +22,19 @@ public class RssActivity extends Activity {
 		//Prepare RSS
 		try {
 			// Create RSS reader
-			RssReader rssReader = new RssReader("http://www.paveepoint.ie/feed/");
+			RssReader rssReader = new RssReader("http://www.paveepoint.ie/feed");
 			// Get a ListView from main view
 			ListView itcItems = (ListView) findViewById(R.id.listMainView);
 
 			// Create a list adapter
 			ArrayAdapter<RssItem> adapter = new ArrayAdapter<RssItem>(this,android.R.layout.simple_list_item_1, rssReader.getItems());
+			
 			// Set list adapter for the ListView
 			itcItems.setAdapter(adapter);
 
 			// Set list view item click listener
 			itcItems.setOnItemClickListener(new ListListener(rssReader.getItems(), this));
-
+			
 		} catch (Exception e) {
 			Log.e("Pavee RSS Error", e.getMessage());
 		}
