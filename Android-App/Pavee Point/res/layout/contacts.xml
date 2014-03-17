@@ -1,14 +1,27 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#495f1a" >
- 
-            <ExpandableListView
-                android:id="@+id/lvExp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"/>
- 
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/iReport"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:onClick="onClickIReport"
+        android:text="iReport - Report a racist incident" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#495f1a"
+        android:orientation="vertical" >
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+    </LinearLayout>
+
 </LinearLayout>

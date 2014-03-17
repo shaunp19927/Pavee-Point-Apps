@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -79,6 +82,12 @@ public class ContactsActivity extends BaseActivity {
 				return false;
 			}
 		});
+	}
+	
+	public void onClickIReport(View v){
+		Log.i("Contacts","ireport clicked");
+		Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.enarireland.org/ireport/"));
+		startActivity(intent);
 	}
 	
 	/*
