@@ -84,6 +84,100 @@ public class ContactsActivity extends BaseActivity {
 	private void prepareListData(){
 		listData = new ArrayList<ListHeader>();
 		ListHeader thisHeader;
+		
+		thisHeader = new ListHeader("Carlow");
+		thisHeader.add(
+			new ListItem(
+				"St Catherine's Community Service Centre",
+				"St Josephs Rd - Carlow",
+				"0599138700",
+				"margaretw@catherines.ie"
+			)	.addWebsite("www.catherines.ie")
+				.addExtra("Fax: 0599138701"),
+				
+			new ListItem(
+				"Traveller Primary Health Care Programme",
+				"c/o St. Catherine's St.Joesphs Road - Carlow Town",
+				"0599138700",
+				"edelk@catherines.ie" // 			
+			)	.addEmail("phw@catherines.ie")			
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Cavan");
+		thisHeader.add(
+		    new ListItem(
+		        "Bernard Joyce Irish Traveller Movement",
+		        "Bridge Street - Cavan",
+		        ListItem.EMPTY,
+		        "bjoyceitm@gmail.com"
+		    )
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Clare");
+		thisHeader.add(
+		    new ListItem(
+		        "Ennis CDP",
+		        "Unit 2"+"\n"+"Mill House, Mill Road"+"\n"+"Ennis - Co. Clare",  
+		        "0656869026",
+		        "enniscdp@eircom.net"
+		    ),
+		    new ListItem(
+		        "Clare Traveller Primary Health Care Programme",
+		        "Unit 2 Clonroad Business Park"+"\n"+"Clonroad Ennis"+"\n"+"Co. Clare",
+		        "0656823968",
+		        "nkealy@clarecare.ie"
+		    )
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Cork");
+		thisHeader.add(
+		    new ListItem(
+		        "Traveller Visibility Group (TVG)",
+		        "25 John Street - Cork City",
+		        "0214503786",
+		        "tvgcork@gmail.com"
+		    )	.addWebsite("www.tvgcork.ie/site/"),
+		    
+		    new ListItem(
+		        "Cork Traveller Womens Network",
+		        "c/o St. Catherine's School"+"\n"+"Bishopstown Avenue"+"\n"+"Model Farm Road"+"\n"+"Cork City",
+		        "0863850136",
+		        "corktravellerwomen@hotmail.com"
+		    ),
+		    new ListItem(
+		        "West Cork Travellers Centre",
+		        "Murphy's Garage"+"\n"+"Western Road"+"\n"+"Clonakilty - Co Cork",
+		        "0238835039",
+		        "wctcmail@gmail.com"
+		    ),
+		    new ListItem(
+		        "Travellers of North Cork",
+		        "Riverside"+"\n"+"Doneraile - Co. Cork",
+		        "02271030",
+		        "marietnc@gmail.com"
+		    ),
+		    new ListItem(
+		        "East Cork Traveller Advocacy",
+		        "North Lee Coumnity"+"\n"+"Old Library"+"\n"+"St Marys Rd - Cork",
+		        "0214928373",
+		        ListItem.EMPTY
+		    )
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Donegal");
+		thisHeader.add(
+		    new ListItem(
+		        "Donegal Travellers Project",
+		        "Unit 2, Level 7"+"\n"+"Millenium Court"+"\n"+"Justice Walsh Rd"+"\n"+"Letterkenny - Co. Donegal",
+		        "0749129281",
+		        "travcom@eircom.net"
+		    )
+		);
+		listData.add(thisHeader);
 
 		thisHeader = new ListHeader("Dublin");
 		thisHeader.add(
@@ -149,42 +243,32 @@ public class ContactsActivity extends BaseActivity {
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Wicklow");
+		thisHeader = new ListHeader("Galway");
 		thisHeader.add(
-			new ListItem(
-				"Bray Travellers Development Group",
-				"97 rear off Main Street"+"\n"+"Bray - Co. Wicklow",
-				"012762075",
-				"btcdgadmin@eircom.net"
-			)	.addWebsite("www.btcdg.ie"),
-			new ListItem(
-				"Wicklow Travellers Group",
-				"Crinion Park - Wicklow Town",
-				"040461878",
-				"info@wicklowtravellersgroup.ie"
-			)	.addWebsite("www.wicklowtravellersgroup.ie")
+		    new ListItem(
+		        "Galway Traveller Movement",
+		        "No. 1 The Plaza"+"\n"+"Headford Road"+"\n"+"Galway City",
+		        "091765390",
+		        "info@gtmtrav.ie" 
+		    )	.addWebsite("www.gtmtrav.ie/"),
+		    
+		    new ListItem(
+		        "South East Galway Rural Traveller Health Project",
+		        "c/o GTM"+"\n"+"61 Main Street"+"\n"+"Loughrea - Co. Galway",
+		        "091880916",
+		        ListItem.EMPTY
+		    )	.addExtra("Contact: Úna Daly")
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Meath");
+		thisHeader = new ListHeader("Kerry");
 		thisHeader.add(
-			new ListItem(
-				"Meath Travellers Workshop",
-				"PO Box 28 - CYMS Hall"+"\n"+"Fairgreen, Navan"+"\n"+"Co. Meath",
-				"0469027801",
-				"infontw@eircom.net"
-			)
-		);
-		listData.add(thisHeader);
-		
-		thisHeader = new ListHeader("Louth");
-		thisHeader.add(
-			new ListItem(
-				"Louth Traveller Movement",
-				"C/o Redeemer Resource Centre"+"\n"+"Cedarwood Park, Dundalk"+"\n"+"Co. Louth",
-				ListItem.EMPTY,
-				"rosemarieitm@gmail.com"
-			)
+		    new ListItem(
+		        "Kerry Travellers Health and Community Development Project",
+		        "St Anthony's House"+"\n"+"Mitchells' Place"+"\n"+"Tralee - Co. Kerry",
+		        "0667120054",
+		        "ktdp@eircom.net"
+		    )	.addWebsite("kerrytravellersproject.wordpress.com/")
 		);
 		listData.add(thisHeader);
 		
@@ -199,26 +283,7 @@ public class ContactsActivity extends BaseActivity {
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Carlow");
-		thisHeader.add(
-			new ListItem(
-				"St Catherine's Community Service Centre",
-				"St Josephs Rd - Carlow",
-				"0599138700",
-				"margaretw@catherines.ie"
-			)	.addWebsite("www.catherines.ie")
-				.addExtra("Fax: 0599138701"),
-				
-			new ListItem(
-				"Traveller Primary Health Care Programme",
-				"c/o St. Catherine's St.Joesphs Road - Carlow Town",
-				"0599138700",
-				"edelk@catherines.ie" // 			
-			)	.addEmail("phw@catherines.ie")			
-		);
-		listData.add(thisHeader);
-		
-		thisHeader = new ListHeader("kilkenny");
+		thisHeader = new ListHeader("Kilkenny");
 		thisHeader.add(
 		    new ListItem(
 		        "Kilkenny Traveller Community Movement",
@@ -228,9 +293,8 @@ public class ContactsActivity extends BaseActivity {
 		    )
 		);
 		listData.add(thisHeader);
-
-
-		thisHeader = new ListHeader("laois");
+		
+		thisHeader = new ListHeader("Laois");
 		thisHeader.add(
 		    new ListItem(
 		        "Laois Traveller Action Group",
@@ -241,8 +305,52 @@ public class ContactsActivity extends BaseActivity {
 		    	.addTel("0578687135")
 		);
 		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("offaly");
+		
+		thisHeader = new ListHeader("Leitrim");
+		thisHeader.add(
+		    new ListItem(
+		        "Leitrim Travellers Development Group Martin Reilly",
+		        ListItem.EMPTY,
+		        ListItem.EMPTY,
+		        "leitrimtravellers@gmail.com"
+		    )
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Louth");
+		thisHeader.add(
+			new ListItem(
+				"Louth Traveller Movement",
+				"C/o Redeemer Resource Centre"+"\n"+"Cedarwood Park, Dundalk"+"\n"+"Co. Louth",
+				ListItem.EMPTY,
+				"rosemarieitm@gmail.com"
+			)
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Mayo");
+		thisHeader.add(
+		    new ListItem(
+		        "Mayo Travellers Support Group",
+		        "19 Thomas Street"+"\n"+"Castlebar - Co Mayo",
+		        "0949028400",
+		        "mayotravsg@gmail.com" 
+		    )	.addEmail("info@mtsg.ie")
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Meath");
+		thisHeader.add(
+			new ListItem(
+				"Meath Travellers Workshop",
+				"PO Box 28 - CYMS Hall"+"\n"+"Fairgreen, Navan"+"\n"+"Co. Meath",
+				"0469027801",
+				"infontw@eircom.net"
+			)
+		);
+		listData.add(thisHeader);
+		
+		thisHeader = new ListHeader("Offaly");
 		thisHeader.add(
 		    new ListItem(
 		        "Offaly Traveller Movement",
@@ -253,73 +361,32 @@ public class ContactsActivity extends BaseActivity {
 		    	.addExtra("Fax: 0579322786")
 		);
 		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("westmeath");
+		
+		thisHeader = new ListHeader("Roscommon");
 		thisHeader.add(
 		    new ListItem(
-		        "Westmeath Traveller Project",
-		        "ACT building"+"\n"+"Ball alley lane"+"\n"+"Parnell Square - Athlone",
-		        "0906494555",
-		        ListItem.EMPTY
-		    )
-		);
-		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("waterford");
-		thisHeader.add(
-		    new ListItem(
-		        "Waterford Traveller Community Development Project",
-		        "Parish Centre"+"\n"+"Ballybeg - Waterford City",
-		        "051357016",
-		        "admin@waterfordtravellercdp.com"
-		    )	.addTel("051591759")
+		        "Roscommon Traveller Health Programme",
+		        "Roscommon LEADER Partnership"+"\n"+"Unit 12, Tower B"+"\n"+"Roscommon West Business Park"+"\n"+"Golf Links Road"+"\n"+"Roscommon Town"+"\n"+"Co. Roscommon",
+		        "0906630252",
+		        "udaly@ridc.ie"
+		    )	.addExtra("Contact: Úna Daly")
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Cork");
+		thisHeader = new ListHeader("Sligo");
 		thisHeader.add(
 		    new ListItem(
-		        "Traveller Visibility Group (TVG)",
-		        "25 John Street - Cork City",
-		        "0214503786",
-		        "tvgcork@gmail.com"
-		    )	.addWebsite("www.tvgcork.ie/site/"),
-		    
-		    new ListItem(
-		        "Cork Traveller Womens Network",
-		        "c/o St. Catherine's School"+"\n"+"Bishopstown Avenue"+"\n"+"Model Farm Road"+"\n"+"Cork City",
-		        "0863850136",
-		        "corktravellerwomen@hotmail.com"
+		        "Sligo Travellers Support Group",
+		        "1A St Anne's"+"\n"+"Cranmore - Co Sligo",
+		        "0719145780",
+		        "stsg@eircom.net"
 		    ),
 		    new ListItem(
-		        "West Cork Travellers Centre",
-		        "Murphy's Garage"+"\n"+"Western Road"+"\n"+"Clonakilty - Co Cork",
-		        "0238835039",
-		        "wctcmail@gmail.com"
-		    ),
-		    new ListItem(
-		        "Travellers of North Cork",
-		        "Riverside"+"\n"+"Doneraile - Co. Cork",
-		        "02271030",
-		        "marietnc@gmail.com"
-		    ),
-		    new ListItem(
-		        "East Cork Traveller Advocacy",
-		        "North Lee Coumnity"+"\n"+"Old Library"+"\n"+"St Marys Rd - Cork",
-		        "0214928373",
+		        "Tubbercurry Traveller Support Group",
+		        "Sligo Rd"+"\n"+"Tubbercurry - Co. Sligo",
+		        "0719185274",
 		        ListItem.EMPTY
 		    )
-		);
-		listData.add(thisHeader);
-		
-		thisHeader = new ListHeader("Kerry");
-		thisHeader.add(
-		    new ListItem(
-		        "Kerry Travellers Health and Community Development Project",
-		        "St Anthony's House"+"\n"+"Mitchells' Place"+"\n"+"Tralee - Co. Kerry",
-		        "0667120054",
-		        "ktdp@eircom.net"
-		    )	.addWebsite("kerrytravellersproject.wordpress.com/")
 		);
 		listData.add(thisHeader);
 		
@@ -340,112 +407,43 @@ public class ContactsActivity extends BaseActivity {
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Clare");
+		thisHeader = new ListHeader("Waterford");
 		thisHeader.add(
 		    new ListItem(
-		        "Ennis CDP",
-		        "Unit 2"+"\n"+"Mill House, Mill Road"+"\n"+"Ennis - Co. Clare",  
-		        "0656869026",
-		        "enniscdp@eircom.net"
-		    ),
-		    new ListItem(
-		        "Clare Traveller Primary Health Care Programme",
-		        "Unit 2 Clonroad Business Park"+"\n"+"Clonroad Ennis"+"\n"+"Co. Clare",
-		        "0656823968",
-		        "nkealy@clarecare.ie"
-		    )
+		        "Waterford Traveller Community Development Project",
+		        "Parish Centre"+"\n"+"Ballybeg - Waterford City",
+		        "051357016",
+		        "admin@waterfordtravellercdp.com"
+		    )	.addTel("051591759")
 		);
 		listData.add(thisHeader);
 		
-		thisHeader = new ListHeader("Galway");
+		thisHeader = new ListHeader("Westmeath");
 		thisHeader.add(
 		    new ListItem(
-		        "Galway Traveller Movement",
-		        "No. 1 The Plaza"+"\n"+"Headford Road"+"\n"+"Galway City",
-		        "091765390",
-		        "info@gtmtrav.ie" 
-		    )	.addWebsite("www.gtmtrav.ie/"),
-		    
-		    new ListItem(
-		        "South East Galway Rural Traveller Health Project",
-		        "c/o GTM"+"\n"+"61 Main Street"+"\n"+"Loughrea - Co. Galway",
-		        "091880916",
-		        ListItem.EMPTY
-		    )	.addExtra("Contact: Úna Daly")
-		);
-		listData.add(thisHeader);
-		
-		thisHeader = new ListHeader("Mayo");
-		thisHeader.add(
-		    new ListItem(
-		        "Mayo Travellers Support Group",
-		        "19 Thomas Street"+"\n"+"Castlebar - Co Mayo",
-		        "0949028400",
-		        "mayotravsg@gmail.com" 
-		    )	.addEmail("info@mtsg.ie")
-		);
-		listData.add(thisHeader);
-		
-		thisHeader = new ListHeader("Sligo");
-		thisHeader.add(
-		    new ListItem(
-		        "Sligo Travellers Support Group",
-		        "1A St Anne's"+"\n"+"Cranmore - Co Sligo",
-		        "0719145780",
-		        "stsg@eircom.net"
-		    ),
-		    new ListItem(
-		        "Tubbercurry Traveller Support Group",
-		        "Sligo Rd"+"\n"+"Tubbercurry - Co. Sligo",
-		        "0719185274",
+		        "Westmeath Traveller Project",
+		        "ACT building"+"\n"+"Ball alley lane"+"\n"+"Parnell Square - Athlone",
+		        "0906494555",
 		        ListItem.EMPTY
 		    )
 		);
-		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("Roscommon");
+		listData.add(thisHeader);	
+		
+		thisHeader = new ListHeader("Wicklow");
 		thisHeader.add(
-		    new ListItem(
-		        "Roscommon Traveller Health Programme",
-		        "Roscommon LEADER Partnership"+"\n"+"Unit 12, Tower B"+"\n"+"Roscommon West Business Park"+"\n"+"Golf Links Road"+"\n"+"Roscommon Town"+"\n"+"Co. Roscommon",
-		        "0906630252",
-		        "udaly@ridc.ie"
-		    )	.addExtra("Contact: Úna Daly")
+			new ListItem(
+				"Bray Travellers Development Group",
+				"97 rear off Main Street"+"\n"+"Bray - Co. Wicklow",
+				"012762075",
+				"btcdgadmin@eircom.net"
+			)	.addWebsite("www.btcdg.ie"),
+			new ListItem(
+				"Wicklow Travellers Group",
+				"Crinion Park - Wicklow Town",
+				"040461878",
+				"info@wicklowtravellersgroup.ie"
+			)	.addWebsite("www.wicklowtravellersgroup.ie")
 		);
 		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("Leitrim");
-		thisHeader.add(
-		    new ListItem(
-		        "Leitrim Travellers Development Group Martin Reilly",
-		        ListItem.EMPTY,
-		        ListItem.EMPTY,
-		        "leitrimtravellers@gmail.com"
-		    )
-		);
-		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("Donegal");
-		thisHeader.add(
-		    new ListItem(
-		        "Donegal Travellers Project",
-		        "Unit 2, Level 7"+"\n"+"Millenium Court"+"\n"+"Justice Walsh Rd"+"\n"+"Letterkenny - Co. Donegal",
-		        "0749129281",
-		        "travcom@eircom.net"
-		    )
-		);
-		listData.add(thisHeader);
-
-		thisHeader = new ListHeader("Cavan");
-		thisHeader.add(
-		    new ListItem(
-		        "Bernard Joyce Irish Traveller Movement",
-		        "Bridge Street - Cavan",
-		        ListItem.EMPTY,
-		        "bjoyceitm@gmail.com"
-		    )
-		);
-		listData.add(thisHeader);
-
 	}
 }
