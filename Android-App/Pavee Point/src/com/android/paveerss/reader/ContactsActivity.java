@@ -72,6 +72,10 @@ public class ContactsActivity extends BaseActivity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
+				((ListItem) 
+				parent	.getExpandableListAdapter()
+						.getChild(groupPosition,childPosition))
+						.onClick(getApplicationContext());
 				return false;
 			}
 		});

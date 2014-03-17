@@ -11,6 +11,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.android.paveerss.reader.util.ListHeader;
+import com.android.paveerss.reader.util.ListItem;
  
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
  
@@ -34,7 +35,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
  
     @Override
-    public Object getChild(int groupPosition, int childPosititon) {
+    public ListItem getChild(int groupPosition, int childPosititon) {
 //        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
 //                .get(childPosititon);
     	return this._listData.get(groupPosition).get(childPosititon);

@@ -3,6 +3,11 @@ package com.android.paveerss.reader.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
+
 public class ListItem{
 	public static final String EMPTY = "";
 	private String name = EMPTY;
@@ -41,7 +46,17 @@ public class ListItem{
 		return this;
 	}
 	
-	public void onClick(){}
+	public void onClick(Context context){
+		Log.i("ListItem", "onClick child");
+		if (!this.tel.isEmpty()){
+			Intent intent = new Intent(Intent.ACTION_DIAL);
+			intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);                     
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.setData(Uri.parse("tel:"+this.tel.get(0)));
+			context.startActivity(intent);
+		}
+		else Log.i("ListItem","no number for child");
+	}
 
 	public String toString(){
 		String result = "";

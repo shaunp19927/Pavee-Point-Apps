@@ -24,6 +24,4 @@ public class ListHeader{
 	
 	public int size()
 	{ return items.size(); }
-
-	public void onClick(){}
 }
