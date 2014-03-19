@@ -32,29 +32,24 @@ public final class R {
         public static final int grey_social=0x7f020007;
         public static final int ic_launcher=0x7f020008;
         public static final int like_facebook=0x7f020009;
-        public static final int new_contacts=0x7f02000a;
-        public static final int new_donate=0x7f02000b;
-        public static final int new_social=0x7f02000c;
-        public static final int news=0x7f02000d;
-        public static final int newsfeed=0x7f02000e;
-        public static final int paypal=0x7f02000f;
-        public static final int pplogo=0x7f020010;
-        public static final int social=0x7f020011;
+        public static final int news=0x7f02000a;
+        public static final int paypal=0x7f02000b;
+        public static final int pplogo=0x7f02000c;
+        public static final int social=0x7f02000d;
     }
     public static final class id {
-        public static final int Container=0x7f080001;
-        public static final int action_contact=0x7f08000b;
-        public static final int action_donate=0x7f08000c;
-        public static final int action_news=0x7f080009;
-        public static final int action_social=0x7f08000a;
-        public static final int button1=0x7f080004;
-        public static final int button2=0x7f080007;
-        public static final int button3=0x7f080008;
-        public static final int iReport=0x7f080002;
+        public static final int LstPeriodOptions=0x7f080002;
+        public static final int action_settings=0x7f08000b;
+        public static final int button1=0x7f080003;
+        public static final int button2=0x7f080004;
+        public static final int button3=0x7f080005;
+        public static final int button4=0x7f080006;
         public static final int imageView1=0x7f080000;
-        public static final int lblListHeader=0x7f080005;
-        public static final int lblListItem=0x7f080006;
-        public static final int lvExp=0x7f080003;
+        public static final int laytbtns=0x7f080001;
+        public static final int lblListHeader=0x7f080008;
+        public static final int lblListItem=0x7f080009;
+        public static final int listMainView=0x7f08000a;
+        public static final int lvExp=0x7f080007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
