@@ -19,7 +19,7 @@ import android.widget.ExpandableListView.OnGroupExpandListener;
  
 public class RssActivity extends BaseActivity{
  
-    ExpandableListAdapter listAdapter;
+    ExpandableAda listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     List<RssItem> rss;
@@ -29,7 +29,7 @@ public class RssActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.contacts);
+		setContentView(R.layout.rss_layout);
         
 		//Prepare RSS
 		try {
@@ -46,7 +46,7 @@ public class RssActivity extends BaseActivity{
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
  
  
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new ExpandableAda(this, listDataHeader, listDataChild);
  
         // setting list adapter
         expListView.setAdapter(listAdapter);
@@ -103,6 +103,21 @@ public class RssActivity extends BaseActivity{
             });
             
     }
+    
+	public void onClickRefresh(View v){
+		try {
+			// Create RSS reader
+			rssReader = new RssReader("http://www.paveepoint.ie/feed");
+			rss = rssReader.getItems();
+			prepareListData(rss);
+	        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+	        listAdapter = new ExpandableAda(this, listDataHeader, listDataChild);
+	        expListView.setAdapter(listAdapter);
+			
+		} catch (Exception e) {
+			Log.e("Pavee RSS Error", e.getMessage());
+		}
+	}
  
     /*
      * Preparing the list data
