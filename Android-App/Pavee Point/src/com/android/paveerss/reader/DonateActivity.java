@@ -1,18 +1,10 @@
 package com.android.paveerss.reader;
 
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class DonateActivity extends BaseActivity {
 
