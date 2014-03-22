@@ -1,11 +1,21 @@
 package com.android.paveerss.reader;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import com.android.paveerss.reader.data.RssItem;
 import com.android.paveerss.reader.util.RssReader;
+
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +25,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
  
 public class RssActivity extends BaseActivity{
@@ -25,23 +36,85 @@ public class RssActivity extends BaseActivity{
     List<RssItem> rss;
     HashMap<String, List<String>> listDataChild;
     RssReader rssReader;
+	String Filename = "rss_file";
+	FileOutputStream fos;
+	ObjectOutputStream oos;
+	FileInputStream fin;
+	ObjectInputStream oin;
     
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.rss_layout);
-        
-		//Prepare RSS
-		try {
-			// Create RSS reader
-			rssReader = new RssReader("http://www.paveepoint.ie/feed");
-			rss = rssReader.getItems();
-			prepareListData(rss);
-			
-		} catch (Exception e) {
-			Log.e("Pavee RSS Error", e.getMessage());
-		}
 		
+		// if network is on, check for updates from rss feed and display
+		if(isNetworkConnected()) {
+			//Prepare RSS
+			try {
+				// Create RSS reader
+
+				rssReader = new RssReader("http://www.paveepoint.ie/feed");
+				rss = rssReader.getItems();
+				
+				prepareListData(rss);
+				setup();
+		
+			} catch (Exception e) {
+				Log.e("Pavee RSS Error", e.getMessage());
+			}
+			
+			// update file
+			try {				fos = openFileOutput(Filename, Context.MODE_PRIVATE);			} 
+			catch (FileNotFoundException e1) {				e1.printStackTrace();			}
+			
+			try {				fos.write(convertToString(rss).getBytes());			} 
+			catch (IOException e) {				e.printStackTrace();			}
+			
+			try {				fos.close();			} 
+			catch (IOException e1) {				e1.printStackTrace();			}
+			
+		}
+		else{
+			
+			
+			// display whats on file first
+			try {				fin = openFileInput(Filename); } 
+			catch (FileNotFoundException e) { e.printStackTrace(); }
+			
+			int c;
+			String temp="";
+			try {
+				while( (c = fin.read()) != -1){
+					   temp += Character.toString((char)c);
+					}
+			} catch (IOException e) {				e.printStackTrace();			}
+				//string temp contains all the data of the file.
+				try {					fin.close();				} 
+				catch (IOException e) {					e.printStackTrace();				}
+			
+				System.out.println(temp);
+			// if something is on file
+			if(temp.length() > 5){
+				rss = convertToList(temp);
+				prepareListData(rss);
+				setup();
+				Toast.makeText(getApplicationContext(),
+			            "Internet Connection Required to Update News!",
+			            Toast.LENGTH_SHORT).show();
+			}
+			else {
+					// nothing on file and no network - display message network required
+		            Toast.makeText(getApplicationContext(),
+		            "Internet Connection Required!",
+		            Toast.LENGTH_SHORT).show();
+				
+			}
+
+		}
+      
+    }
+	
+	public void setup(){
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
  
@@ -101,22 +174,42 @@ public class RssActivity extends BaseActivity{
                 return false;
             }
             });
-            
-    }
+	}
     
 	public void onClickRefresh(View v){
-		try {
-			// Create RSS reader
-			rssReader = new RssReader("http://www.paveepoint.ie/feed");
-			rss = rssReader.getItems();
-			prepareListData(rss);
-	        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-	        listAdapter = new ExpandableAda(this, listDataHeader, listDataChild);
-	        expListView.setAdapter(listAdapter);
-			
-		} catch (Exception e) {
-			Log.e("Pavee RSS Error", e.getMessage());
-		}
+		
+		// if network is on, check for updates from rss feed and display
+				if(isNetworkConnected()) {
+					//Prepare RSS
+					try {
+						// Create RSS reader
+
+						rssReader = new RssReader("http://www.paveepoint.ie/feed");
+						rss = rssReader.getItems();
+						
+						prepareListData(rss);
+						setup();
+				
+					} catch (Exception e) {
+						Log.e("Pavee RSS Error", e.getMessage());
+					}
+					
+					// update file
+					try {				fos = openFileOutput(Filename, Context.MODE_PRIVATE);			} 
+					catch (FileNotFoundException e1) {				e1.printStackTrace();			}
+					
+					try {				fos.write(convertToString(rss).getBytes());			} 
+					catch (IOException e) {				e.printStackTrace();			}
+					
+					try {				fos.close();			} 
+					catch (IOException e1) {				e1.printStackTrace();			}
+					
+				}
+				else {
+					Toast.makeText(getApplicationContext(),
+				            "Internet Connection Required !",
+				            Toast.LENGTH_SHORT).show();
+				}
 	}
  
     /*
@@ -137,13 +230,52 @@ public class RssActivity extends BaseActivity{
         for(int i = 0; i < list.size(); i++) {
         	List<String> temp = new ArrayList<String>();
         	temp.add(list.get(i).getDescription());
+        	
         	listDataChild.put(listDataHeader.get(i), temp);
         	
         }
        
     }
+    
+    private boolean isNetworkConnected() {
+    	  ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    	  NetworkInfo ni = cm.getActiveNetworkInfo();
+    	  if (ni == null) {
+    	   // There are no active networks.
+    	   return false;
+    	  } else
+    	   return true;
+    	 }
+    
+    private String convertToString(List<RssItem> list){
+    	String result = "";
+    	
+    	for(int i = 0; i < list.size(); i++) {
+    		RssItem anItem = list.get(i);
+    		result += anItem.getTitle() + "-sep-" + anItem.getLink() + "-sep-" + anItem.getDescription() + "-sep-";
+    	}
+    	
+    	
+    	return result;
+    }
+    
+    private List<RssItem> convertToList(String s) {
+    	List<RssItem> result = new ArrayList<RssItem>();
+    	
+    	String[] temp = s.split("-sep-");
+    	for(int i = 0; i < temp.length; i++){
+    		System.out.println(i +": " +temp[i] + " || ");
+    	}
+    	for(int i = 0; i < temp.length; i+= 3) {
+    		RssItem anItem = new RssItem();
+    		anItem.setTitle(temp[i]);
+    		anItem.setLink(temp[i+1]);
+    		anItem.setDescription(temp[i+2]);
+    		result.add(anItem);
+    	}
+    	
+    	return result;
+    }
 
     
 }
-
-
