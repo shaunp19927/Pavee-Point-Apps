@@ -28,7 +28,7 @@
         <activity
             android:name="com.android.paveerss.reader.RssActivity"
             android:label="News Feed"
-            android:parentActivityName="com.example.myfirstapp.MainActivity">
+            android:parentActivityName="com.android.paveerss.reader.MainActivity">
             <meta-data android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow"/>
             <meta-data android:name="android.support.PARENT_ACTIVITY" 
@@ -38,7 +38,7 @@
         <activity
             android:name="com.android.paveerss.reader.SocialActivity"
             android:label="Social Media"
-            android:parentActivityName="com.example.myfirstapp.MainActivity">
+            android:parentActivityName="com.android.paveerss.reader.MainActivity">
             <meta-data android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow"/>
             <meta-data android:name="android.support.PARENT_ACTIVITY" 
@@ -48,7 +48,7 @@
         <activity
             android:name="com.android.paveerss.reader.ContactsActivity"
             android:label="Contacts Directory"
-            android:parentActivityName="com.example.myfirstapp.MainActivity">
+            android:parentActivityName="com.android.paveerss.reader.MainActivity">
             <meta-data android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow"/>
             <meta-data android:name="android.support.PARENT_ACTIVITY" 
@@ -58,7 +58,7 @@
         <activity
             android:name="com.android.paveerss.reader.DonateActivity"
             android:label="Make a donation to Pavee Point"
-            android:parentActivityName="com.example.myfirstapp.MainActivity">
+            android:parentActivityName="com.android.paveerss.reader.MainActivity">
             <meta-data android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow"/>
             <meta-data android:name="android.support.PARENT_ACTIVITY" 
