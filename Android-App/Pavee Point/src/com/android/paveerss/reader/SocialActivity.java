@@ -44,8 +44,18 @@ public class SocialActivity extends BaseActivity {
  
             public void onClick(View arg0) {
             	 //Starting a new Intent
-            	Intent facebookIntent = new Intent(Intent.ACTION_VIEW,
-    		            Uri.parse("https://www.facebook.com/paveepointtrc"));
+            	Intent facebookIntent;
+            	
+            	try {
+                    getApplicationContext().getPackageManager()
+                            .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
+                    facebookIntent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("fb://page/267917619901925")); //Trys to make intent with FB's URI
+                } catch (Exception e) {
+                    facebookIntent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.facebook.com/paveepointtrc")); //catches and opens a url to the desired page
+                }
+            	
             	startActivity(facebookIntent);
  
             }
