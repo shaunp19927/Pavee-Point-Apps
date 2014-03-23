@@ -263,9 +263,9 @@ public class RssActivity extends BaseActivity{
     	List<RssItem> result = new ArrayList<RssItem>();
     	
     	String[] temp = s.split("-sep-");
-    	for(int i = 0; i < temp.length; i++){
-    		System.out.println(i +": " +temp[i] + " || ");
-    	}
+//    	for(int i = 0; i < temp.length; i++){
+//    		System.out.println(i +": " +temp[i] + " || ");
+//    	}
     	for(int i = 0; i < temp.length; i+= 3) {
     		RssItem anItem = new RssItem();
     		anItem.setTitle(temp[i]);
