@@ -33,13 +33,17 @@ public final class R {
         public static final int ic_launcher=0x7f020008;
         public static final int like_facebook=0x7f020009;
         public static final int new_contacts=0x7f02000a;
-        public static final int new_donate=0x7f02000b;
-        public static final int new_social=0x7f02000c;
-        public static final int news=0x7f02000d;
-        public static final int newsfeed=0x7f02000e;
-        public static final int paypal=0x7f02000f;
-        public static final int pplogo=0x7f020010;
-        public static final int social=0x7f020011;
+        public static final int new_contacts_pressed=0x7f02000b;
+        public static final int new_donate=0x7f02000c;
+        public static final int new_donate_pressed=0x7f02000d;
+        public static final int new_social=0x7f02000e;
+        public static final int new_social_pressed=0x7f02000f;
+        public static final int news=0x7f020010;
+        public static final int newsfeed=0x7f020011;
+        public static final int newsfeed_pressed=0x7f020012;
+        public static final int paypal=0x7f020013;
+        public static final int pplogo=0x7f020014;
+        public static final int social=0x7f020015;
     }
     public static final class id {
         public static final int Container=0x7f080001;
