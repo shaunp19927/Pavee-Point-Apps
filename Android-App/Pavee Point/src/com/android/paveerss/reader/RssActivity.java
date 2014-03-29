@@ -78,36 +78,36 @@ public class RssActivity extends BaseActivity{
 			
 			
 			// display whats on file first
-			try {				fin = openFileInput(Filename); } 
-			catch (FileNotFoundException e) { e.printStackTrace(); }
-			
-			int c;
-			String temp="";
 			try {
-				while( (c = fin.read()) != -1){
-					   temp += Character.toString((char)c);
+				fin = openFileInput(Filename);  
+			
+				int c;
+				String temp="";
+				try {
+					while( (c = fin.read()) != -1){
+						temp += Character.toString((char)c);
 					}
-			} catch (IOException e) {				e.printStackTrace();			}
-				//string temp contains all the data of the file.
-				try {					fin.close();				} 
-				catch (IOException e) {					e.printStackTrace();				}
+				} catch (IOException e) {				e.printStackTrace();			}
+					//string temp contains all the data of the file.
+				try {fin.close();} 
+				catch (IOException e) {e.printStackTrace();}
 			
 				System.out.println(temp);
-			// if something is on file
-			if(temp.length() > 5){
-				rss = convertToList(temp);
-				prepareListData(rss);
-				setup();
-				Toast.makeText(getApplicationContext(),
-			            "Internet Connection Required to Update News!",
-			            Toast.LENGTH_SHORT).show();
+				// if something is on file
+				if(temp.length() > 5){
+					rss = convertToList(temp);
+					prepareListData(rss);
+					setup();
+					Toast.makeText(getApplicationContext(),
+							"Internet Connection Required to Update News!",
+							Toast.LENGTH_SHORT).show();
+				}
 			}
-			else {
+			catch (FileNotFoundException e) {
 					// nothing on file and no network - display message network required
 		            Toast.makeText(getApplicationContext(),
 		            "Internet Connection Required!",
 		            Toast.LENGTH_SHORT).show();
-				
 			}
 
 		}
