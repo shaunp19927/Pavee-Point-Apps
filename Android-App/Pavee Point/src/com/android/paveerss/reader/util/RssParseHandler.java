@@ -7,8 +7,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import android.util.Log;
-
 import com.android.paveerss.reader.data.RssItem;
 
 
@@ -113,7 +111,7 @@ public class RssParseHandler extends DefaultHandler {
 //		}
 //		System.out.println(new_desc);
 //		return new_desc;
-		return android.text.Html.fromHtml(desc).toString();
+		return android.text.Html.fromHtml(desc).toString().replaceAll("â€™", "'");
 	}
 
 }
